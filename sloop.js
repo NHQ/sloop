@@ -1,16 +1,16 @@
-module.exports = function(buffer, start, duration, byteLength){
+module.exports = function(buffer, start, duration, sampleLength){
 
   function sampler(){
     if(sampler.index >= sampler.duration) sampler.index = 0;
     sampler.index = sampler.start + sampler.index;
-    var sample = sampler.buffer.slice(sampler.index, sampler.index + sampler.byteLength);
-    sampler.index += sampler.byteLength;
+    var sample = sampler.buffer.slice(sampler.index, sampler.index + sampler.sampleLength);
+    sampler.index += sampler.sampleLength;
     return sample
   }
 
   sampler.start = start;
-  sampler.duration = duration;
-  sampler.byteLength = byteLength
+  sampler.duration = duration * sampleLength;
+  sampler.sampleLength = sampleLength
   sampler.index = 0;
   sampler.buffer = buffer;
 

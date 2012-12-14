@@ -1,6 +1,6 @@
 {
   "name": "sloop",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "loop over buffer slices",
   "main": "sloop.js",
   "scripts": {
